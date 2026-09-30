@@ -1,0 +1,182 @@
+/* Bakdaulet Bekman — 2311012911 */
+:root {
+  --no: 2311012911;
+  --ton: mod(var(--no), 360);
+  --renk-ana: hsl(var(--ton) 65% 38%);
+  --renk-zemin: hsl(var(--ton) 30% 97%);
+  --font: Verdana, sans-serif;
+  --bosluk-m: 1rem;
+  --kose: 8px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font);
+  background: var(--renk-zemin);
+  color: #222;
+  margin: 0;
+  line-height: 1.5;
+}
+
+header {
+  background: var(--renk-ana);
+  color: #fff;
+  padding: var(--bosluk-m);
+}
+
+header h1 {
+  margin: 0 0 .5rem 0;
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:not(:last-child)::after {
+  content: " · ";
+  color: #fff;
+  font-weight: normal;
+}
+
+main {
+  padding: var(--bosluk-m);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+footer {
+  padding: var(--bosluk-m);
+  text-align: center;
+  color: #666;
+  font-size: .9rem;
+}
+
+a {
+  color: var(--renk-ana);
+}
+
+/* Kart listesi: section > article, grid */
+.kartlar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--bosluk-m);
+  margin: var(--bosluk-m) 0;
+}
+
+.kartlar article {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+
+.kartlar article h3 {
+  margin-top: 0;
+}
+
+.kartlar article p {
+  margin: .25rem 0;
+}
+
+/* Detay sayfası: afiş solda, künye sağda */
+.detay-duzen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bosluk-m);
+  align-items: flex-start;
+}
+
+.detay-duzen figure,
+.detay-duzen dl {
+  flex: 1 1 260px;
+  margin: 0;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  max-width: 100%;
+  border-radius: var(--kose);
+  display: block;
+}
+
+figcaption {
+  font-style: italic;
+  color: #555;
+  margin-top: .25rem;
+}
+
+dl {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+
+dt {
+  font-weight: bold;
+  color: var(--renk-ana);
+}
+
+dd {
+  margin: 0 0 .75rem 0;
+}
+
+/* Formlar */
+form p {
+  margin-bottom: var(--bosluk-m);
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: .25rem;
+}
+
+input, select, textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: .5rem;
+  border: 1px solid #bbb;
+  border-radius: var(--kose);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Not: "required" uyarısı tarayıcının kendi doğrulaması ile çalışır
+   (boş alanla Kaydet/Güncelle'ye basılınca tarayıcı otomatik uyarır). */
+
+button {
+  background: var(--renk-ana);
+  color: #fff;
+  border: none;
+  border-radius: var(--kose);
+  padding: .6rem 1.4rem;
+  font-size: 1rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+/* Mobil: tek sütun, taşma yok */
+@media (max-width: 600px) {
+  .kartlar {
+    grid-template-columns: 1fr;
+  }
+  .detay-duzen {
+    flex-direction: column;
+  }
+}
