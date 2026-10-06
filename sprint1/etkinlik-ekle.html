@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeni Etkinlik Kaydı</title>
+</head>
+<body>
+
+    <header>
+        <h1>Yeni Etkinlik Kayıt Formu</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="etkinlikler.html">Etkinlikler Listesi</a></li>
+            <li><a href="etkinlik-ekle.html">Yeni Etkinlik Kaydı</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Lütfen Formu Doldurunuz</h2>
+
+        <form action="#" method="post">
+            <p>
+                <label for="ad">Etkinliğin Adı:</label><br>
+                <input type="text" id="ad" name="ad" required>
+            </p>
+
+            <p>
+                <label for="tur">Etkinlik Türü:</label><br>
+                <select id="tur" name="tur" required>
+                    <option value="">Lütfen seçin...</option>
+                    <option value="Festival">Festival</option>
+                    <option value="Seminer">Seminer</option>
+                    <option value="Tiyatro">Tiyatro</option>
+                    <option value="Spor">Spor</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="tarih_baslangic">Tarih:</label><br>
+                <input type="date" id="tarih_baslangic" name="tarih_baslangic" required>
+            </p>
+
+            <p>
+                <label for="saat_baslangic">Saat:</label><br>
+                <input type="time" id="saat_baslangic" name="saat_baslangic" required>
+            </p>
+
+            <p>
+                <label for="lokasyon">Mekan / Yer:</label><br>
+                <input type="text" id="lokasyon" name="lokasyon" required>
+            </p>
+
+            <p>
+                <label for="kisa_aciklama">Kısa Açıklama:</label><br>
+                <textarea id="kisa_aciklama" name="kisa_aciklama" rows="6" cols="40" required></textarea>
+            </p>
+
+            <p>
+                <button type="submit">Etkinliği Kaydet</button>
+            </p>
+        </form>
+    </main>
+
+    <footer>
+      
+    </footer>
+
+</body>
+</html>
