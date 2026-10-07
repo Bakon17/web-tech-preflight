@@ -1,4 +1,4 @@
-// Adım 2 · Tüm etkinlikler tek yerde. Tarih: GG-AA-YYYY, saat: SS:DD
+
 export const events = [
   {
     id: "event-1",

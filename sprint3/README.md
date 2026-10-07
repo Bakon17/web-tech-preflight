@@ -1,4 +1,4 @@
-https://KULLANICI-ADIN-buraya.vercel.app
+  https://web-tech-preflight-sprint2-five.vercel.app/
 
 # Kampüs Etkinlikleri – Sprint 3
 
