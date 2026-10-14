@@ -9,9 +9,9 @@ formlar bu veriyle çalışıyor. `localStorage`, framework ve jQuery kullanılm
 ## Kişiselleştirme (css/2311012911.css)
 
 ```css
---no: 2311012911;              /* Ad Soyad: Bakdaulet Bekman */
---ton: mod(var(--no), 360);    /* = 111 → yeşil ton */
---font: Verdana, sans-serif;   /* son hane = 1 → Verdana */
+--no: 2311012911;              
+--ton: mod(var(--no), 360);    
+--font: Verdana, sans-serif;   /
 ```
 
 ## Dosya yapısı
