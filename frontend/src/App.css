@@ -4,11 +4,15 @@
   --ton: mod(var(--no), 360);
   --renk-ana: hsl(var(--ton) 65% 38%);
   --renk-zemin: hsl(var(--ton) 30% 97%);
-  --font: Verdana, sans-serif;
+  --font: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   --bosluk-m: 1rem;
   --kose: 8px;
   --hata: #c0392b;
   --hata-zemin: #fff5f5;
+  --renk-koyu: hsl(var(--ton) 65% 28%);
+  --bosluk-s: .5rem;
+  --basari: #2e7d32;
+  --basari-zemin: #f1f8f1;
 }
 
 * { box-sizing: border-box; }
@@ -38,12 +42,6 @@ nav a {
   font-weight: bold;
 }
 
-nav a:not(:last-child)::after {
-  content: " · ";
-  color: #fff;
-  font-weight: normal;
-}
-
 main {
   padding: var(--bosluk-m);
   max-width: 960px;
@@ -63,7 +61,8 @@ a {
 }
 
 /* Kart listesi: section > article, grid */
-.kartlar {
+.kartlar,
+.etkinlik-listesi {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--bosluk-m);
@@ -249,7 +248,8 @@ button:hover {
 
 /* Mobil: tek sütun, taşma yok */
 @media (max-width: 600px) {
-  .kartlar {
+  .kartlar,
+.etkinlik-listesi {
     grid-template-columns: 1fr;
   }
   .detay-duzen {
@@ -292,4 +292,135 @@ button:hover {
   background-color: #f5f5f5; /* Бос аймақтар болса жеңіл фон береді */
   border-radius: 8px;
   margin-bottom: 12px;
+}
+
+/* ===================== Sprint 6 ===================== */
+
+/* Üst alan: başlık + menü aynı renk, menüde nokta yok */
+header { padding-bottom: .5rem; }
+header h1 { font-size: 2rem; margin: 0 0 .25rem 0; }
+header p { margin: 0 0 .5rem 0; }
+
+.menu {
+  background: var(--renk-ana);
+  padding: 0 var(--bosluk-m) var(--bosluk-m) var(--bosluk-m);
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.menu a {
+  color: #fff;
+  font-weight: normal;
+  padding: .5rem 1rem;
+  border-radius: var(--kose);
+}
+.menu a:hover { background: var(--renk-koyu); }
+.menu a[aria-current="page"] {
+  background: var(--renk-zemin);
+  color: var(--renk-koyu);
+  font-weight: bold;
+}
+
+a { color: var(--renk-koyu); }
+.bolum-baslik { margin: 0 0 var(--bosluk-m) 0; }
+
+/* Kartlar */
+.kart h2 { font-size: 1.4rem; margin-bottom: .5rem; }
+.kart p { margin: .6rem 0; }
+.kart a { font-weight: bold; }
+.kart .etiket { margin: 0; }
+
+/* Filtre ve sonuç sayısı */
+.filtre { margin-bottom: var(--bosluk-m); }
+.sonuc-sayisi { font-weight: bold; color: var(--renk-koyu); }
+
+/* Butonlar */
+button, a.buton { background: var(--renk-koyu); }
+a.buton {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: var(--kose);
+  padding: .6rem 1.4rem;
+  margin: var(--bosluk-s) var(--bosluk-s) var(--bosluk-s) 0;
+}
+.button-group { margin-top: var(--bosluk-m); }
+
+/* Formlar */
+input, select, textarea {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: .75rem;
+}
+.form .alan { margin-bottom: 1.5rem; }
+.hata-metni {
+  display: block;
+  color: var(--hata);
+  font-size: .85rem;
+  margin-top: .25rem;
+}
+.hata-metni:empty { display: none; }
+.mesaj {
+  border: 1px solid var(--basari);
+  background: var(--basari-zemin);
+  color: var(--basari);
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+.auth-linkler { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: var(--bosluk-m); }
+
+/* Alt bilgi */
+footer { border-top: 1px solid #ddd; margin-top: 2rem; }
+
+/* Yönetim tablosu */
+.tablo { width: 100%; border-collapse: collapse; background: #fff; margin-top: var(--bosluk-m); }
+.tablo th { background: var(--renk-ana); color: #fff; text-align: left; }
+.tablo th, .tablo td { padding: .75rem; border-bottom: 1px solid #ddd; }
+.islemler { display: flex; gap: var(--bosluk-s); }
+.islemler a.buton { margin: 0; padding: .5rem 1.3rem; }
+.islemler button { padding: .5rem 1.3rem; }
+.buton-sil { background: var(--hata); }
+
+@media (max-width: 699px) {
+  .tablo thead { display: none; }
+  .tablo tr {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: var(--kose);
+    margin-bottom: var(--bosluk-m);
+  }
+  .tablo td { display: block; border-bottom: none; }
+  .tablo td[data-baslik]::before { content: attr(data-baslik) ": "; font-weight: 700; }
+  .tablo td[data-baslik="İşlemler"]::before { content: none; }
+}
+
+/* Detay sayfası: afiş solda, künye sağda */
+.detay-duzen {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 2rem;
+  align-items: start;
+}
+.detay-duzen figure img { width: 100%; height: auto; }
+.kunye {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: var(--kose);
+  padding: var(--bosluk-m);
+}
+.kunye h3 { margin: 0 0 var(--bosluk-m) 0; }
+.kunye dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.kunye dt { color: inherit; }
+.kunye dd { margin: 0; }
+.aciklama-block { margin-top: var(--bosluk-m); }
+@media (max-width: 700px) {
+  .detay-duzen { grid-template-columns: 1fr; }
 }

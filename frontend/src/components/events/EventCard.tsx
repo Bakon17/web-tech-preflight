@@ -1,21 +1,22 @@
+import { Link } from "react-router-dom";
 import type { CampusEvent } from "../../types/campus-event";
+import { formatDate } from "../../utils/format-date";
 
 interface EventCardProps {
   event: CampusEvent;
-  onShowDetail: (id: string) => void;
 }
 
-export default function EventCard({ event, onShowDetail }: EventCardProps) {
+export default function EventCard({ event }: EventCardProps) {
   return (
     <article className="kart">
       {event.image && <img src={event.image} alt={event.title} />}
       <h2>{event.title}</h2>
-      <p className="kategori">{event.category}</p>
-      <p><strong>Tarih:</strong> {event.date}, {event.time}</p>
-      <p><strong>Yer:</strong> {event.location}</p>
-      <p><strong>Kontenjan:</strong> {event.capacity} kişi</p>
+      <p><span className="etiket">{event.category}</span></p>
+      <p>Tarih: {formatDate(event.date)}, {event.time}</p>
+      <p>Yer: {event.location}</p>
+      <p>Kontenjan: {event.capacity} kişi</p>
       <p>{event.description}</p>
-      <button onClick={() => onShowDetail(event.id)}>Detayları gör</button>
+      <Link to={`/events/${event.id}`}>Detayları gör</Link>
     </article>
   );
 }

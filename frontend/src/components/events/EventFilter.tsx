@@ -16,24 +16,32 @@ export default function EventFilter({
   onCategoryChange,
 }: EventFilterProps) {
   return (
-    <div className="arama-filtre">
-      <input
-        type="search"
-        placeholder="Etkinlik ara..."
-        value={searchText}
-        onChange={(e) => onSearchChange(e.target.value)}
-      />
-      <select
-        value={category}
-        onChange={(e) => onCategoryChange(e.target.value as Category | "")}
-      >
-        <option value="">Tümü</option>
-        {categories.map((cat) => (
-          <option key={cat} value={cat}>
-            {cat}
-          </option>
-        ))}
-      </select>
+    <div className="filtre">
+      <p>
+        <label htmlFor="arama">Etkinlik ara</label>
+        <input
+          id="arama"
+          type="search"
+          placeholder="Örn. atölye, kariyer"
+          value={searchText}
+          onChange={(e) => onSearchChange(e.target.value)}
+        />
+      </p>
+      <p>
+        <label htmlFor="kategori">Kategori</label>
+        <select
+          id="kategori"
+          value={category}
+          onChange={(e) => onCategoryChange(e.target.value as Category | "")}
+        >
+          <option value="">Tümü</option>
+          {categories.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
+          ))}
+        </select>
+      </p>
     </div>
   );
 }
