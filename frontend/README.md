@@ -1,6 +1,6 @@
 # Kampüs Etkinlikleri
 
-   Canlı adres: https://bakdauletbekman-frontend.vercel.app
+    Canlı adres: https://bakdauletbekman-frontend-bakon17.vercel.app
   
 
 ## Kurulum
